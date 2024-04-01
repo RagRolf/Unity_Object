@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,6 +30,11 @@ public class UIMainScene : MonoBehaviour
     private void OnDestroy()
     {
         Instance = null;
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void Update()
