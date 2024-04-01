@@ -34,6 +34,7 @@ public class UIMainScene : MonoBehaviour
 
     public void Exit()
     {
+        MainManager.instance.SaveColor();
         SceneManager.LoadScene(0);
     }
 
