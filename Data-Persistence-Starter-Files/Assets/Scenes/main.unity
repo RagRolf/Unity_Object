@@ -545,6 +545,7 @@ MonoBehaviour:
   LineCount: 6
   Ball: {fileID: 177912862}
   ScoreText: {fileID: 188020406}
+  ScoreText1: {fileID: 2078529056}
   GameOverText: {fileID: 474497238}
 --- !u!1 &455529321
 GameObject:
@@ -1488,7 +1489,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Best Score : Name : 0'
+  m_Text: 'Best Score : 0 Name : Nameless'
 --- !u!222 &2078529057
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1573,7 +1574,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
