@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class Attack : Destructable, IInterfaceA //inheritance 
+public class Building : Destructable, IInterfaceA //inheritance 
 {
     private void Start()
     {

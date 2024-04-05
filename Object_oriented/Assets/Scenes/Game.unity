@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 6946180}
   - component: {fileID: 6946179}
   - component: {fileID: 6946181}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building (4)
-  m_TagString: Mother
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,8 +266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  bombAmount: 5
+  projectile: {fileID: 266809936231986430, guid: 7c35a849b108db84aa8d65576ffb854c, type: 3}
+  projectileAmount: 5
+  lives: 5
 --- !u!1 &75580352
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,9 +281,9 @@ GameObject:
   - component: {fileID: 75580355}
   - component: {fileID: 75580354}
   - component: {fileID: 75580356}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building (3)
-  m_TagString: Mother
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,8 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  bombAmount: 5
+  projectile: {fileID: 266809936231986430, guid: 7c35a849b108db84aa8d65576ffb854c, type: 3}
+  projectileAmount: 5
+  lives: 5
 --- !u!1 &245034587
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,9 +464,9 @@ GameObject:
   - component: {fileID: 357257444}
   - component: {fileID: 357257443}
   - component: {fileID: 357257445}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building (1)
-  m_TagString: Mother
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -593,8 +595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  bombAmount: 5
+  projectile: {fileID: 266809936231986430, guid: 7c35a849b108db84aa8d65576ffb854c, type: 3}
+  projectileAmount: 5
+  lives: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,9 +702,9 @@ GameObject:
   - component: {fileID: 951144844}
   - component: {fileID: 951144843}
   - component: {fileID: 951144845}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building (2)
-  m_TagString: Mother
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -830,8 +833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  bombAmount: 5
+  projectile: {fileID: 266809936231986430, guid: 7c35a849b108db84aa8d65576ffb854c, type: 3}
+  projectileAmount: 5
+  lives: 5
 --- !u!1 &1211660480
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,9 +848,9 @@ GameObject:
   - component: {fileID: 1211660481}
   - component: {fileID: 1211660483}
   - component: {fileID: 1211660484}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building
-  m_TagString: Mother
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -975,8 +979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  bombAmount: 5
+  projectile: {fileID: 266809936231986430, guid: 7c35a849b108db84aa8d65576ffb854c, type: 3}
+  projectileAmount: 5
+  lives: 5
 --- !u!1 &1504974382
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +994,7 @@ GameObject:
   - component: {fileID: 1504974383}
   - component: {fileID: 1504974385}
   - component: {fileID: 1504974386}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: UFO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,7 +1097,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1199,9 +1204,9 @@ GameObject:
   - component: {fileID: 1545480498}
   - component: {fileID: 1545480497}
   - component: {fileID: 1545480499}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Building (5)
-  m_TagString: Mother
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1330,8 +1335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  bombAmount: 5
+  projectile: {fileID: 266809936231986430, guid: 7c35a849b108db84aa8d65576ffb854c, type: 3}
+  projectileAmount: 5
+  lives: 5
 --- !u!1 &1670671326
 GameObject:
   m_ObjectHideFlags: 0

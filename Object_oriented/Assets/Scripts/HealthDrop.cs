@@ -11,11 +11,8 @@ public class HealthDrop : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Mother"))
-        {
-            attack[other.name[0] - ' '].HealthAid();
-            transform.parent.gameObject.SetActive(false);
-        }
+        attack[other.name[0] - ' '].HealthAid();
+        transform.parent.gameObject.SetActive(false);
     }
 
     private IEnumerator Die()

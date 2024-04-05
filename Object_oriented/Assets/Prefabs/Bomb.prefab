@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7661856139931422189}
   - component: {fileID: 8895306576952016341}
   - component: {fileID: 2307864541627305198}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 5727650681664951785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.14, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.28787, y: 0.9235661, z: 0.28787}
   m_ConstrainProportionsScale: 0
   m_Children:
