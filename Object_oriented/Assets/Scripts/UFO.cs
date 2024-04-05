@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,44 +8,58 @@ public class UFO : MonoBehaviour
     private GameObject[] allBombs;
     [SerializeField] private Transform targetParent;
     [SerializeField] private GameObject bomb;
-    [SerializeField] private InputAction action;
-    private static int amountOfBombs = 6;
+    [SerializeField] private GameObject healthDrop;
+    [SerializeField] private InputAction dropBomb;
+    [SerializeField] private InputAction move;
+    private static float border = 11.5f, offset = 0.95f;
+    private static int amountOfBombs = 5, ufoSpeed = 3;
     private int index;
     private float counter;
 
     private void OnEnable()
     {
-        action.Enable();
+        dropBomb.Enable();
+        move.Enable();
     }
 
     private void OnDisable()
     {
-        action.Disable();
+        dropBomb.Disable();
+        move.Disable();
     }
     void Start()
     {
+        StartCoroutine(DropIt());
+        healthDrop = Instantiate(healthDrop);
+        healthDrop.transform.GetChild(0).GetComponent<HealthDrop>().attack = targetParent.GetComponentsInChildren<IInterfaceA>();
         int index = 0;
+        dropBomb.canceled += DropBomb_canceled;
         while (index < amountOfBombs)
         {
             Array.Resize(ref allBombs, ++index);
-            allBombs[index - 1] = Instantiate(bomb, transform);
-        }
-        List<GameObject> transformList = new List<GameObject>();
-        for(int i = 0; i < transform.childCount; i++)
-        {
-            GameObject obj = transform.GetChild(i).gameObject;
+            GameObject obj = Instantiate(bomb);
             OnTrigger trigger = obj.transform.GetChild(0).GetComponent<OnTrigger>();
-            trigger.targetParent = targetParent;
-            trigger.canBeAttacked = targetParent.GetComponentsInChildren<CanBeAttacked>();
-            transformList.Add(obj);
+            trigger.attack = targetParent.GetComponentsInChildren<IInterfaceA>();
+            allBombs[index - 1] = obj;
         }
-        allBombs = transformList.ToArray();
+        for(int i = 0; i < targetParent.childCount; i++)
+        {
+            targetParent.GetChild(i).name = (char)(' ' + i) + targetParent.GetChild(i).name;
+        }
     }
 
-    // Update is called once per frame
+    private void DropBomb_canceled(InputAction.CallbackContext obj)
+    {
+        counter = 0;
+    }
+
     void Update()
     {
-        if (action.IsPressed())
+        float movement = move.ReadValue<float>();
+        if (transform.position.x > border || transform.position.x < -border)
+            transform.position = new Vector3(-transform.position.x * offset, transform.position.y, 0);
+        transform.Translate(new Vector3(movement * Time.deltaTime * ufoSpeed, 0, 0));
+        if (dropBomb.IsPressed())
         {
             counter += Time.deltaTime;
             if (counter > 1f)
@@ -56,6 +70,16 @@ public class UFO : MonoBehaviour
                 if (index == amountOfBombs)
                     index = 0;
             }
+        }
+    }
+
+    private IEnumerator DropIt()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(10, 15));
+            healthDrop.SetActive(true);
+            healthDrop.transform.position = transform.position - new Vector3(0, 0.8f);
         }
     }
 }

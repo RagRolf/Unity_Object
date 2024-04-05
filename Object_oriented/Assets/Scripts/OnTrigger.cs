@@ -1,33 +1,35 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class OnTrigger : MonoBehaviour
 {
-    [HideInInspector] public CanBeAttacked[] canBeAttacked;
-    [HideInInspector] public Transform targetParent;
+    public IInterfaceA[] attack;
     List<int> allIndices = new List<int>(5);
     private void OnEnable()
     {
         StartCoroutine(Die());
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        allIndices.Add(other.gameObject.name[0] - ' ');
+        Debug.Log("Enter " + other.gameObject.name);
+        if (other.CompareTag("Mother"))
+            allIndices.Add(other.gameObject.name[0] - ' ');
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        allIndices.Remove(other.gameObject.name[0] - ' ');
+        Debug.Log("Exit " + other.gameObject.name);
+        if (other.CompareTag("Mother"))
+            allIndices.Remove(other.gameObject.name[0] - ' ');
     }
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(3f);
         for(int i = 0; i <  allIndices.Count; i++)
         {
-            canBeAttacked[allIndices[i]].IsHit();
+            attack[allIndices[i]].IsHit();
             allIndices = new List<int>(5);
         }
         transform.parent.gameObject.SetActive(false);

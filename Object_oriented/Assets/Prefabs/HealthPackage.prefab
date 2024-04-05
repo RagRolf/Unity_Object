@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5671576070564822997
+--- !u!1 &4754226171818413530
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7661856139931422189}
-  - component: {fileID: 8895306576952016341}
-  - component: {fileID: 2307864541627305198}
+  - component: {fileID: 3895192460236031783}
+  - component: {fileID: 3617644642190234695}
+  - component: {fileID: 3255359561516406311}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7661856139931422189
+--- !u!4 &3895192460236031783
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5671576070564822997}
+  m_GameObject: {fileID: 4754226171818413530}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.009, z: 0}
-  m_LocalScale: {x: 3.4737902, y: 1.0827596, z: 3.4737902}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 234519702822685835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8895306576952016341
-MonoBehaviour:
+--- !u!61 &3617644642190234695
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5671576070564822997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1531dece6ec59f745b2e12f57be39f1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &2307864541627305198
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5671576070564822997}
+  m_GameObject: {fileID: 4754226171818413530}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -78,8 +66,30 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &3255359561516406311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754226171818413530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4c015069b968f4c97923216736e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5727650681664951785
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +103,7 @@ GameObject:
   - component: {fileID: 7168670076878193732}
   - component: {fileID: 544061315594864910}
   m_Layer: 0
-  m_Name: Bomb
+  m_Name: HealthPackage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,11 +118,11 @@ Transform:
   m_GameObject: {fileID: 5727650681664951785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.14, z: 0}
+  m_LocalPosition: {x: 8.523057, y: 3.41, z: 0}
   m_LocalScale: {x: 0.28787, y: 0.9235661, z: 0.28787}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7661856139931422189}
+  - {fileID: 3895192460236031783}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8203947910107513447
@@ -157,7 +167,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

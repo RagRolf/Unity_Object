@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 6946181}
   m_Layer: 0
   m_Name: Building (4)
-  m_TagString: Untagged
+  m_TagString: Mother
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,6 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  bombAmount: 5
 --- !u!1 &75580352
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +282,7 @@ GameObject:
   - component: {fileID: 75580356}
   m_Layer: 0
   m_Name: Building (3)
-  m_TagString: Untagged
+  m_TagString: Mother
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,6 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  bombAmount: 5
 --- !u!1 &245034587
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +464,7 @@ GameObject:
   - component: {fileID: 357257445}
   m_Layer: 0
   m_Name: Building (1)
-  m_TagString: Untagged
+  m_TagString: Mother
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,6 +593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  bombAmount: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +701,7 @@ GameObject:
   - component: {fileID: 951144845}
   m_Layer: 0
   m_Name: Building (2)
-  m_TagString: Untagged
+  m_TagString: Mother
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -824,6 +830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  bombAmount: 5
 --- !u!1 &1211660480
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +846,7 @@ GameObject:
   - component: {fileID: 1211660484}
   m_Layer: 0
   m_Name: Building
-  m_TagString: Untagged
+  m_TagString: Mother
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -967,6 +975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  bombAmount: 5
 --- !u!1 &1504974382
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +989,6 @@ GameObject:
   - component: {fileID: 1504974383}
   - component: {fileID: 1504974385}
   - component: {fileID: 1504974386}
-  - component: {fileID: 1504974387}
   m_Layer: 0
   m_Name: UFO
   m_TagString: Untagged
@@ -1103,69 +1112,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetParent: {fileID: 245034588}
   bomb: {fileID: 5727650681664951785, guid: ac873f632814dc34daaa90086282c3fd, type: 3}
-  action:
-    m_Name: Action
+  healthDrop: {fileID: 5727650681664951785, guid: 51e62b7f2c8159847a639aad0ff81463, type: 3}
+  dropBomb:
+    m_Name: Drop Bomb
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: ef3eb70f-cdd6-4bea-8438-8a30c3a7d290
+    m_Id: f587cd68-9e44-4e8b-8e75-068f4196aaf1
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: e273dcfe-e468-4ff0-87b3-432022bb3410
+      m_Id: 9ca917ff-b051-4db1-a945-707fc922c4e3
       m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Action
+      m_Action: Drop Bomb
       m_Flags: 0
     m_Flags: 0
---- !u!114 &1504974387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504974382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 44ea380583320ca4bbd435c42648122b, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1504974386}
-        m_TargetAssemblyTypeName: UFO, Assembly-CSharp
-        m_MethodName: Space
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 14e44211-86ab-4bd1-8ff7-76eb2eda5bf6
-    m_ActionName: All/Space[/Keyboard/space]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: All
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  move:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f5e48f5f-bbca-4a42-a9e9-a0a388533e0a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: 7a405b13-ffb5-4853-8b42-c730650e99c3
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: Negative
+      m_Id: 4f8c925d-570b-4b46-be54-e0786aea60b1
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: Positive
+      m_Id: d715f45e-8156-4dfe-a8cd-30d1459e629d
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: 1D Axis
+      m_Id: f723e94b-9178-442b-acf9-b4057d62ba9e
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 44b4e882-5b9c-4a75-a89a-4c338f5cb87b
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 04fe5110-0bdc-4493-9d5f-798f6a450ac8
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    m_Flags: 0
 --- !u!1 &1545480495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1201,7 @@ GameObject:
   - component: {fileID: 1545480499}
   m_Layer: 0
   m_Name: Building (5)
-  m_TagString: Untagged
+  m_TagString: Mother
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1309,6 +1330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6a71eb0c03bb4086c21a6a22b7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  bombAmount: 5
 --- !u!1 &1670671326
 GameObject:
   m_ObjectHideFlags: 0
