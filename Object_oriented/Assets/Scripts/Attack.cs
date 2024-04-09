@@ -14,7 +14,6 @@ public class Attack : Destructable, IInterfaceA //INHERITANCE
     private void Start()
     {
         Initialize();
-        Attack attackScript = this;
         startLives = lives;
         transform.position = new Vector2(Random.Range(-border, border), transform.position.y);
         StartCoroutine(SetRandomPos());

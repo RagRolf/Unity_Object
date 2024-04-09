@@ -37,7 +37,7 @@ public class Destructable : MonoBehaviour
     }
 
 
-    public virtual void Destruction(float startSize, float scaleFactor) //POLYMORFISM
+    public virtual void Destruction(float startSize, float scaleFactor) //POLYMORPHISM
     {
         for (int i = 0; i < projectileAmount; i++)
         {
