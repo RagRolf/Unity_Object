@@ -1,27 +1,53 @@
 using UnityEngine;
 
-public class Building : Destructable, IInterfaceA //inheritance 
+public class Building : Destructable, IInterfaceA //INHERITANCE 
 {
+    private bool once;
+    private float startLives, startSize = 0.2f, scaleFactor = 3f, pitch = 0.9f;
+    private static int killedBuildings, amountOfBuildings;
+    private Attack[] attackers;
+    int attackersCount;
     private void Start()
     {
-        InitializeProjectiles();
+        attackers = transform.parent.GetComponentsInChildren<Attack>();
+        attackersCount = attackers.Length;
+        amountOfBuildings++;
+        if (transform.localScale.x == 0.8f)
+        {
+            startSize = 0.8f;
+            scaleFactor = 6f;
+            pitch = 0.6f;
+        }
+        startLives = lives;
+        Initialize();
     }
     public void IsHit()
     {
-        Debug.Log(name + "got hit!");
+        if (once) return;
+        sprite.color = new Color(1, 1, 1, --lives / startLives);
+        if (lives == 0)
+        {
+            once = true;
+            audioSource.pitch = pitch;
+            audioSource.PlayOneShot(audioSource.clip);
+            Destruction(startSize, scaleFactor);
+        }
+    }
+
+    public override void Destruction(float startSize, float scaleFactor)
+    {
+        if (++killedBuildings == amountOfBuildings) //9 is amount of buildings
+            for(int i = 0; i < attackersCount; i++)
+            {
+                if (attackers[i] != null) 
+                    attackers[i].KillMeNow(); //So not null
+            }
+        base.Destruction(startSize, scaleFactor);
     }
 
     public void HealthAid()
     {
-        Debug.Log(name + "got hit!");
-    }
-
-    public override void Destruction()
-    {
-        base.Destruction();
-    }
-    public override void Upgrade()
-    {
-
+        lives += 3;
+        sprite.color = new Color(1, 1, 1, lives / startLives);
     }
 }

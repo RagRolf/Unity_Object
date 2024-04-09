@@ -4,6 +4,8 @@ using UnityEngine;
 public class HealthDrop : MonoBehaviour
 {
     [HideInInspector] public IInterfaceA[] attack;
+    [SerializeField] private AudioClip clip;
+
 
     private void OnEnable()
     {
@@ -13,6 +15,7 @@ public class HealthDrop : MonoBehaviour
     {
         attack[other.name[0] - ' '].HealthAid();
         transform.parent.gameObject.SetActive(false);
+        ProvideAudioSources.source.PlayOneShot(clip);
     }
 
     private IEnumerator Die()
