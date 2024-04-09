@@ -72,7 +72,7 @@ public class Attack : Destructable, IInterfaceA //INHERITANCE
             if (index == attackers.Length)
                 index = 0;
             attackers[index].SetActive(true);
-            Vector3 position = transform.position + new Vector3(0f, 2.42f, 0f);
+            Vector3 position = transform.position + new Vector3(0f, 0.775f, 0f);
             Vector3 direction = UFO.UFOpos.position - position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             float randomOffset = Random.Range(-45f, 45f);

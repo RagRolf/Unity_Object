@@ -4,11 +4,13 @@ public class Building : Destructable, IInterfaceA //INHERITANCE
 {
     private bool once;
     private float startLives, startSize = 0.2f, scaleFactor = 3f, pitch = 0.9f;
-    private static int killedBuildings, amountOfBuildings;
+    private static int amountOfBuildings;
     private Attack[] attackers;
     int attackersCount;
+    IfWon ifWon;
     private void Start()
     {
+        ifWon = GetComponentInParent<IfWon>();
         attackers = transform.parent.GetComponentsInChildren<Attack>();
         attackersCount = attackers.Length;
         amountOfBuildings++;
@@ -36,14 +38,14 @@ public class Building : Destructable, IInterfaceA //INHERITANCE
 
     public override void Destruction(float startSize, float scaleFactor)
     {
-        if (++killedBuildings == amountOfBuildings) //9 is amount of buildings
+        if (++ifWon.StoreBuildings == amountOfBuildings) //9 is amount of buildings
         {
             for (int i = 0; i < attackersCount; i++)
             {
                 if (attackers[i] != null)
                     attackers[i].KillMeNow(); //So not null
             }
-            IfWon.won.StartChangeScene();
+            ifWon.StartChangeScene();
         }
         base.Destruction(startSize, scaleFactor);
     }

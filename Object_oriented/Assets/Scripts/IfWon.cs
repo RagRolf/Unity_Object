@@ -6,12 +6,11 @@ public class IfWon : MonoBehaviour
 {
     [SerializeField] private GameObject winUI;
     private AudioSource winSource;
-    public static IfWon won { get; private set; }
+    [HideInInspector] public int StoreBuildings;
     public bool playerWon { get; private set; }
 
     private void Start()
     {
-        won = this;
         winSource = winUI.GetComponent<AudioSource>();
     }
 
