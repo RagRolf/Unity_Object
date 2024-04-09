@@ -56,8 +56,9 @@ public class UFO : MonoBehaviour
         while (index < amountOfBombs)
         {
             GameObject obj = Instantiate(bomb);
-            OnTrigger trigger = obj.transform.GetChild(0).transform.GetChild(0).GetComponent<OnTrigger>();
+            OnTrigger trigger = obj.transform.GetChild(0).GetComponent<OnTrigger>();
             trigger.attack = targetParent.GetComponentsInChildren<IInterfaceA>();
+            trigger.allEnemies = targetParent.GetComponentsInChildren<Collider2D>(); //So they fill up
             allBombs[index++] = obj.transform.GetChild(0).gameObject;
         }
         for(int i = 0; i < targetParent.childCount; i++)
@@ -90,7 +91,6 @@ public class UFO : MonoBehaviour
         }
         if (lives < 1)
         {
-            if (IfWon.won.playerWon) return;
             StartCoroutine(Killed());
         }
     }

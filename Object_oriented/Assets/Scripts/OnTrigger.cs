@@ -1,42 +1,46 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OnTrigger : MonoBehaviour
 {
+    [SerializeField] private LayerMask layerMask;
+    [HideInInspector] public Collider2D[] allEnemies;
     public IInterfaceA[] attack;
-    List<int> allIndices = new List<int>(5);
-    bool dead;
     [SerializeField] private ParticleSystem particles;
     [SerializeField] private AudioClip[] explode;
+    [SerializeField] AudioClip hit;
+    private bool allow = true;
     private void OnEnable()
     {
+        allow = true;
         StartCoroutine(Die());
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-         allIndices.Add(other.gameObject.name[0] - ' ');
+        if (allow)
+        {
+            ProvideAudioSources.source.PlayOneShot(hit); //A bit of wait
+            StartCoroutine(Hit());
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private IEnumerator Hit()
     {
-        if(!dead)
-        allIndices.Remove(other.gameObject.name[0] - ' ');
+        allow = false;
+        yield return new WaitForSeconds(0.3f);
+        allow = true;
     }
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(2.95f);
+        int numberOfColliders = Physics2D.OverlapCircleNonAlloc(new Vector2(transform.position.x, transform.position.y), 1f, allEnemies, layerMask);
         ProvideAudioSources.source.PlayOneShot(explode[Random.Range(0, 2)]);
-        dead = true;
-        int count = allIndices.Count;
-        for(int i = 0; i < count; i++)
+        for (int i = 0; i < numberOfColliders; i++)
         {
-            attack[allIndices[i]].IsHit();
+            attack[allEnemies[i].gameObject.name[0] - ' '].IsHit() ;
         }
-        allIndices.Clear();
-        particles.transform.position = transform.parent.position;
+        particles.transform.position = transform.position;
         particles.Play();
-        transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

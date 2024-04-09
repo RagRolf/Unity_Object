@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayBomb : MonoBehaviour
+public class PlayHealthPackage : MonoBehaviour
 {
     [SerializeField] AudioClip hit;
     private bool allow = true;
