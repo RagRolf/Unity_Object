@@ -90,6 +90,7 @@ public class UFO : MonoBehaviour
         }
         if (lives < 1)
         {
+            if (IfWon.won.playerWon) return;
             StartCoroutine(Killed());
         }
     }

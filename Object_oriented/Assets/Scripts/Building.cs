@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Building : Destructable, IInterfaceA //INHERITANCE 
 {
@@ -37,11 +39,14 @@ public class Building : Destructable, IInterfaceA //INHERITANCE
     public override void Destruction(float startSize, float scaleFactor)
     {
         if (++killedBuildings == amountOfBuildings) //9 is amount of buildings
-            for(int i = 0; i < attackersCount; i++)
+        {
+            for (int i = 0; i < attackersCount; i++)
             {
-                if (attackers[i] != null) 
+                if (attackers[i] != null)
                     attackers[i].KillMeNow(); //So not null
             }
+            IfWon.won.StartChangeScene();
+        }
         base.Destruction(startSize, scaleFactor);
     }
 
