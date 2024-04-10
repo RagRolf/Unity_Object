@@ -4,7 +4,6 @@ public class Building : Destructable, IInterfaceA //INHERITANCE
 {
     private bool once;
     private float startLives, startSize = 0.2f, scaleFactor = 3f, pitch = 0.9f;
-    private static int amountOfBuildings;
     private Attack[] attackers;
     int attackersCount;
     IfWon ifWon;
@@ -13,7 +12,7 @@ public class Building : Destructable, IInterfaceA //INHERITANCE
         ifWon = GetComponentInParent<IfWon>();
         attackers = transform.parent.GetComponentsInChildren<Attack>();
         attackersCount = attackers.Length;
-        amountOfBuildings++;
+        ifWon.AmountOfBuildings++;
         if (transform.localScale.x == 0.8f)
         {
             startSize = 0.8f;
@@ -38,7 +37,7 @@ public class Building : Destructable, IInterfaceA //INHERITANCE
 
     public override void Destruction(float startSize, float scaleFactor)
     {
-        if (++ifWon.StoreBuildings == amountOfBuildings) //9 is amount of buildings
+        if (++ifWon.StoreBuildings == ifWon.AmountOfBuildings) //9 is amount of buildings
         {
             for (int i = 0; i < attackersCount; i++)
             {

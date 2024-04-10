@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UFO : MonoBehaviour
 {
+    [SerializeField] private IfWon Iwon;
     bool activateOnce = false;
     private AudioSource[] sources;
     private SpriteRenderer sprite;
@@ -151,7 +152,8 @@ public class UFO : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (!Iwon.playerWon)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private IEnumerator DropIt()
     {

@@ -504,6 +504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winUI: {fileID: 1232906559}
+  StoreBuildings: 0
+  AmountOfBuildings: 0
 --- !u!1 &252138476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,6 +3243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933732e5be5c1fd46a107a93ee79bb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Iwon: {fileID: 245034590}
   targetParent: {fileID: 245034588}
   bomb: {fileID: 399765049254076774, guid: ac873f632814dc34daaa90086282c3fd, type: 3}
   healthDrop: {fileID: 5727650681664951785, guid: 51e62b7f2c8159847a639aad0ff81463, type: 3}
